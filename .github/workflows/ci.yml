@@ -1,0 +1,43 @@
+# ci.yml
+# homebrew-tap
+#
+# Created by Kévin Naudin on 2026-06-11.
+#
+# Validates every cask change: style, audit (online), and a real
+# install/uninstall smoke test on an Apple Silicon runner.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+
+      - name: Link checkout into Homebrew taps
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/synth-inc/homebrew-tap"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+
+      - name: Style
+        run: brew style synth-inc/tap
+
+      - name: Audit
+        run: brew audit --cask --online synth-inc/tap/onit-dictate
+
+      - name: Install smoke test
+        run: |
+          brew install --cask synth-inc/tap/onit-dictate
+          APP_NAME="$(/usr/bin/grep -E '^\s*app "' Casks/onit-dictate.rb | sed -E 's/.*app "(.*)".*/\1/')"
+          test -d "/Applications/$APP_NAME"
+
+      - name: Uninstall smoke test
+        run: |
+          brew uninstall --cask onit-dictate
