@@ -22,6 +22,8 @@ cask "onit-dictate" do
   uninstall quit: "inc.synth.Onit"
 
   zap trash: [
+    "~/.cache/huggingface/hub/models--ibm-granite--granite-speech-4.1-2b",
+    "~/Documents/huggingface/models/argmaxinc/whisperkit-coreml",
     "~/Documents/SmartPositioningDebug",
     "~/Library/Application Support/FluidAudio/Models/parakeet-tdt-0.6b-v3-coreml",
     "~/Library/Application Support/Onit",
