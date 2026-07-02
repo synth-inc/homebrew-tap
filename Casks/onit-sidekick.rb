@@ -3,14 +3,14 @@ cask "onit-sidekick" do
   version "4.0,70"
   sha256 "0000000000000000000000000000000000000000000000000000000000000000"
 
-  url "https://github.com/synth-inc/onit-sidekick/releases/download/v#{version.csv.first}/SideKick-#{version.csv.first}.dmg",
-      verified: "github.com/synth-inc/onit-sidekick/"
+  url "https://github.com/synth-inc/onit/releases/download/v#{version.csv.first}/SideKick-#{version.csv.first}.dmg",
+      verified: "github.com/synth-inc/onit/"
   name "SideKick"
   desc "AI chat panel that docks next to your active window with on-screen context"
   homepage "https://www.getonit.ai/"
 
   livecheck do
-    url "https://raw.githubusercontent.com/synth-inc/onit-sidekick/main/appcast.xml"
+    url "https://raw.githubusercontent.com/synth-inc/onit/main/appcast.xml"
     strategy :sparkle
   end
 
