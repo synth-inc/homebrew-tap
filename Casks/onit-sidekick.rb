@@ -1,8 +1,8 @@
 cask "onit-sidekick" do
-  version "3.0,70"
+  version "3.0"
   sha256 "1aaeee17ffb4b05ca2a9168a2319dd9b4d31f485868433a858acfda86a23a4d8"
 
-  url "https://github.com/synth-inc/onit/releases/download/v#{version.csv.first}/SideKick-#{version.csv.first}.dmg",
+  url "https://github.com/synth-inc/onit/releases/download/v#{version}/SideKick-#{version}.dmg",
       verified: "github.com/synth-inc/onit/"
   name "SideKick"
   desc "AI chat panel that docks next to your active window with on-screen context"
@@ -10,7 +10,7 @@ cask "onit-sidekick" do
 
   livecheck do
     url "https://raw.githubusercontent.com/synth-inc/onit/main/appcast.xml"
-    strategy :sparkle
+    strategy :sparkle, &:short_version
   end
 
   auto_updates true
