@@ -1,7 +1,6 @@
 cask "onit-sidekick" do
-  # version & sha256 are filled in automatically by macos/release.sh at release time.
-  version "4.0,70"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "3.0,70"
+  sha256 "1aaeee17ffb4b05ca2a9168a2319dd9b4d31f485868433a858acfda86a23a4d8"
 
   url "https://github.com/synth-inc/onit/releases/download/v#{version.csv.first}/SideKick-#{version.csv.first}.dmg",
       verified: "github.com/synth-inc/onit/"
