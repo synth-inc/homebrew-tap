@@ -30,14 +30,14 @@ jobs:
         run: brew style synth-inc/tap
 
       - name: Audit
-        run: brew audit --cask --online synth-inc/tap/onit-dictate
+        run: brew audit --cask --online synth-inc/tap/cloudless-voice
 
       - name: Install smoke test
         run: |
-          brew install --cask synth-inc/tap/onit-dictate
-          APP_NAME="$(/usr/bin/grep -E '^\s*app "' Casks/onit-dictate.rb | sed -E 's/.*app "(.*)".*/\1/')"
+          brew install --cask synth-inc/tap/cloudless-voice
+          APP_NAME="$(/usr/bin/grep -E '^\s*app "' Casks/cloudless-voice.rb | sed -E 's/.*app "(.*)".*/\1/')"
           test -d "/Applications/$APP_NAME"
 
       - name: Uninstall smoke test
         run: |
-          brew uninstall --cask onit-dictate
+          brew uninstall --cask cloudless-voice

@@ -13,9 +13,13 @@ cask "onit-dictate" do
     strategy :sparkle
   end
 
+  deprecate! date:             "2026-10-30",
+             because:          "was renamed to Cloudless Voice",
+             replacement_cask: "cloudless-voice"
+
   auto_updates true
-  depends_on macos: :sequoia
   depends_on arch: :arm64
+  depends_on macos: :sequoia
 
   app "Onit.app"
 
