@@ -26,6 +26,9 @@ jobs:
           mkdir -p "$(dirname "$TAP_DIR")"
           ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
 
+      - name: Trust the tap
+        run: brew trust synth-inc/tap
+
       - name: Style
         run: brew style synth-inc/tap
 
